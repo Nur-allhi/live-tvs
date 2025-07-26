@@ -92,6 +92,8 @@ function updateFocus(newIndex) {
     // Add focus to new element
     if (allLinks[focusedIndex]) {
         allLinks[focusedIndex].classList.add('ring-4', 'ring-offset-2', 'ring-blue-500');
+        // Ensure the element receives browser focus for better accessibility and interaction
+        allLinks[focusedIndex].focus();
         // Scroll into view, ensuring it's fully visible
         allLinks[focusedIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
     }
@@ -206,7 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             case 'Enter':
                 if (allLinks[focusedIndex]) {
-                    allLinks[focusedIndex].click(); // Simulate a click on the focused link
+                    // Use window.open for more reliable navigation, especially with target="_blank"
+                    window.open(allLinks[focusedIndex].href, '_blank');
                 }
                 return; // Prevent default scroll behavior for Enter
             default:
