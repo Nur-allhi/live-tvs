@@ -6,16 +6,10 @@ const icons = {
     clock: `<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>`,
     gamepad: `<path d="M6 12H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2Z"/><path d="M18 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2Z"/><path d="M12 6V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2Z"/><path d="M12 18v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2Z"/><path d="M12 12h4v4h-4Z"/>`,
     film: `<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7h18"/><path d="M3 17h18"/><path d="M17 3v18"/>`,
-    sportsAward: `<circle cx="12" cy="8" r="6"/><path d="M15 12.5V20l-3-3-3 3V12.5"/>`
+    sportsAward: `<circle cx="12" cy="8" r="6"/><path d="M15 12.5V20l-3-3-3 3V12.5"/>`,
+    link: `<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.54 2.54a5 5 0 0 0-7.07 7.07l1.41 1.41"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.41-1.41a5 5 0 0 0 7.07-7.07l-1.41-1.41"/>`
 };
 
-// --- LIVE TV & STREAMING LINKS ---
-// To add a new link: Add a new object { name: "Link Name", url: "https://yourlink.com", color: "blue", icon: icons.tv }
-// To remove a link: Delete its corresponding object from the array.
-// To edit a link: Change the 'name', 'url', 'color', or 'icon' property of an existing object.
-// Available Tailwind colors for 'color': blue, green, red, purple, orange, teal, pink, cyan, indigo, gray, slate, lime, emerald, amber, fuchsia, etc.
-// Use numbers like '600' for primary color, '700' for hover, '300' for ring.
-// Available icons: icons.playCircle, icons.layoutDashboard, icons.tv, icons.clock, icons.gamepad, icons.film, icons.sportsAward
 const liveTvLinks = [
     { name: "Sony Liv_2", url: "https://sonyliv-web-by-shivansh.vercel.app/", color: "cyan", icon: icons.tv },
     { name: "Live tv Hub of All in one Tg", url: "https://allinonereborn.space/livetv-hub/", color: "purple", icon: icons.tv },
@@ -26,20 +20,22 @@ const liveTvLinks = [
     { name: "BongoFlix", url: "https://tv.bongoflix.top/", color: "orange", icon: icons.tv },
 ];
 
-// --- SPORTS CHANNELS LINKS ---
-// Same instructions as above for adding, removing, or editing links.
+
 const sportsLinks = [
     { name: "TNT 1", url: "https://denverisalive.github.io/Player/Player.html?mpd=https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/live/clients/dash/enc/wf8usag51e/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd?amznDtid=AOAGZA014O5RE&encoding=segmentBase&keyId=ae26845bd33038a9c0774a0981007294&key=63ac662dde310cfb4cc6f9b43b34196d", color: "indigo", icon: icons.sportsAward },
     { name: "TNT 2", url: "https://denverisalive.github.io/Player/Player.html?mpd=https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/live/clients/dash/enc/f0qvkrra8j/out/v1/f8fa17f087564f51aa4d5c700be43ec4/cenc.mpd?amznDtid=AOAGZA014O5RE&encoding=segmentBase&keyId=6d1708b185c6c4d7b37600520c7cc93c&key=1aace05f58d8edef9697fd52cb09f441", color: "gray", icon: icons.sportsAward },
     { name: "TNT 3", url: "https://denverisalive.github.io/Player/Player.html?mpd=https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/live/clients/dash/enc/lsdasbvglv/out/v1/bb548a3626cd4708afbb94a58d71dce9/cenc.mpd?amznDtid=AOAGZA014O5RE&encoding=segmentBase&keyId=4e993aa8c1f295f8b94e8e6f6d0bfe&key=86a1ed6e96caab8eb1009fe530d2cf4f", color: "slate", icon: icons.sportsAward },
     { name: "Willow Sports", url: "https://denverisalive.github.io/Player/Player.html?mpd=https://abmyxykaaaaaaaamkyvb65fuqebyg.7a77200bf98444ac997a89ed83775793.emt.cf.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd&keyId=1779c27b9d077a3ba0c9cc1bb9a94b9f&key=cc5cf3b7928fb9e0a1ee6a8b566f0a8e", color: "lime", icon: icons.sportsAward },
-    { name: "SPORTS TVN", url: "https://sportstvn.com/", color: "emerald", icon: icons.sportsAward }
 ];
 
 // --- DIRECT CHANNELS LINKS ---
-// Same instructions as above for adding, removing, or editing links.
 const directChannelsLinks = [
     { name: "Disney+ Hotstar", url: "https://amitb3669.github.io/allinonereborn/disni.html", color: "red", icon: icons.playCircle }
+];
+
+// --- MY PERSONAL SITES LINKS ---
+const personalSitesLinks = [
+    { name: "Web Player", url: "https://nur-allhi.github.io/web-player/index.html", color: "blue", icon: icons.link }
 ];
 
 /**
@@ -99,13 +95,14 @@ function updateFocus(newIndex) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Generate links first
+    // Generate links for all sections
     generateLinks(liveTvLinks, 'live-tv-links');
     generateLinks(sportsLinks, 'sports-links');
     generateLinks(directChannelsLinks, 'direct-channels-links');
+    generateLinks(personalSitesLinks, 'personal-sites-links'); // Generate personal sites links
 
     // Collect all generated links into a single array for navigation
-    allLinks = Array.from(document.querySelectorAll('#live-tv-links a, #sports-links a, #direct-channels-links a'));
+    allLinks = Array.from(document.querySelectorAll('#live-tv-links a, #sports-links a, #direct-channels-links a, #personal-sites-links a'));
 
     // Set initial focus on the first link if available
     if (allLinks.length > 0) {
@@ -207,15 +204,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             case 'Enter':
                 if (allLinks[focusedIndex]) {
-                    // Use window.open for more reliable navigation, especially with target="_blank"
                     window.open(allLinks[focusedIndex].href, '_blank');
                 }
-                return; // Prevent default scroll behavior for Enter
+                return;
             default:
-                return; // Do nothing for other keys
+                return;
         }
 
-        // Prevent default browser scroll behavior for arrow keys
         event.preventDefault();
         updateFocus(newIndex);
     });
