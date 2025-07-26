@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Links</title>
+    <!-- Include Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light background color */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <!-- Main container for the website content -->
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-2xl w-full">
+        <!-- Website Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-800 mb-2">My Personal Hub</h1>
+            <p class="text-lg text-gray-600">Explore my favorite online destinations!</p>
+        </header>
+
+        <!-- Links Section -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Example Link 1: GitHub Profile -->
+            <a href="https://github.com/your-github-profile" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center p-4 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.499.09.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.953 0-1.096.392-1.988 1.03-2.69-.104-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.099 2.65.648.702 1.029 1.593 1.029 2.69 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2Z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-lg font-semibold">My GitHub</span>
+            </a>
+
+            <!-- Example Link 2: Personal Blog/Portfolio -->
+            <a href="https://your-blog-or-portfolio.com" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center p-4 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300">
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-9 11l-4-4 1.41-1.41L10 12.17l7.59-7.59L19 6l-9 9z" />
+                </svg>
+                <span class="text-lg font-semibold">My Blog/Portfolio</span>
+            </a>
+
+            <!-- Example Link 3: Favorite Social Media -->
+            <a href="https://twitter.com/your-twitter-handle" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center p-4 bg-sky-600 text-white rounded-lg shadow-md hover:bg-sky-700 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-sky-300">
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M22.46 6c-.77.34-1.6.56-2.46.69.88-.53 1.56-1.37 1.88-2.36-.83.49-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.53 7.6 3.6 5.37c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.88 3.59-.69-.02-1.34-.21-1.91-.53v.05c0 2.07 1.47 3.8 3.42 4.19-.36.1-.74.15-1.13.15-.28 0-.55-.03-.81-.08.54 1.7 2.11 2.93 3.97 2.96C10.1 19.5 8.28 20 6 20c-1.18 0-2.3-.07-3.4-.2l-.46.03c2 1.3 4.38 2.06 6.94 2.06 8.32 0 12.87-6.9 12.87-12.87 0-.2-.01-.4-.01-.6.88-.63 1.64-1.42 2.25-2.32z" />
+                </svg>
+                <span class="text-lg font-semibold">My Twitter</span>
+            </a>
+
+            <!-- Example Link 4: Another important link -->
+            <a href="https://www.example.com" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center p-4 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-300">
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                </svg>
+                <span class="text-lg font-semibold">Important Site</span>
+            </a>
+
+            <!-- Add more links here following the same structure -->
+            <!--
+            <a href="YOUR_LINK_HERE" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center p-4 bg-gray-600 text-white rounded-lg shadow-md hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-300">
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M... (SVG path for icon)" />
+                </svg>
+                <span class="text-lg font-semibold">Custom Link</span>
+            </a>
+            -->
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center mt-8 text-gray-500 text-sm">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
