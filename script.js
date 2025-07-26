@@ -9,7 +9,13 @@ const icons = {
     sportsAward: `<circle cx="12" cy="8" r="6"/><path d="M15 12.5V20l-3-3-3 3V12.5"/>`
 };
 
-
+// --- LIVE TV & STREAMING LINKS ---
+// To add a new link: Add a new object { name: "Link Name", url: "https://yourlink.com", color: "blue", icon: icons.tv }
+// To remove a link: Delete its corresponding object from the array.
+// To edit a link: Change the 'name', 'url', 'color', or 'icon' property of an existing object.
+// Available Tailwind colors for 'color': blue, green, red, purple, orange, teal, pink, cyan, indigo, gray, slate, lime, emerald, amber, fuchsia, etc.
+// Use numbers like '600' for primary color, '700' for hover, '300' for ring.
+// Available icons: icons.playCircle, icons.layoutDashboard, icons.tv, icons.clock, icons.gamepad, icons.film, icons.sportsAward
 const liveTvLinks = [
     { name: "Sony Liv_2", url: "https://sonyliv-web-by-shivansh.vercel.app/", color: "cyan", icon: icons.tv },
     { name: "Live tv Hub of All in one Tg", url: "https://allinonereborn.space/livetv-hub/", color: "purple", icon: icons.tv },
@@ -21,6 +27,8 @@ const liveTvLinks = [
     { name: "Jio Tv +", url: "https://mini1.allinonereborn.xyz/jiotv-ww192/", color: "teal", icon: icons.tv }
 ];
 
+// --- SPORTS CHANNELS LINKS ---
+// Same instructions as above for adding, removing, or editing links.
 const sportsLinks = [
     { name: "TNT 1", url: "https://denverisalive.github.io/Player/Player.html?mpd=https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/live/clients/dash/enc/wf8usag51e/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd?amznDtid=AOAGZA014O5RE&encoding=segmentBase&keyId=ae26845bd33038a9c0774a0981007294&key=63ac662dde310cfb4cc6f9b43b34196d", color: "indigo", icon: icons.sportsAward },
     { name: "TNT 2", url: "https://denverisalive.github.io/Player/Player.html?mpd=https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/live/clients/dash/enc/f0qvkrra8j/out/v1/f8fa17f087564f51aa4d5c700be43ec4/cenc.mpd?amznDtid=AOAGZA014O5RE&encoding=segmentBase&keyId=6d1708b185c6c4d7b37600520c7cc93c&key=1aace05f58d8edef9697fd52cb09f441", color: "gray", icon: icons.sportsAward },
@@ -29,12 +37,17 @@ const sportsLinks = [
     { name: "SPORTS TVN", url: "https://sportstvn.com/", color: "emerald", icon: icons.sportsAward }
 ];
 
-
+// --- DIRECT CHANNELS LINKS ---
+// Same instructions as above for adding, removing, or editing links.
 const directChannelsLinks = [
     { name: "Disney+ Hotstar", url: "https://amitb3669.github.io/allinonereborn/disni.html", color: "red", icon: icons.playCircle }
 ];
 
-
+/**
+ * Dynamically generates link buttons and appends them to a target section.
+ * @param {Array<Object>} linksArray - An array of link objects ({ name, url, color, icon }).
+ * @param {string} targetElementId - The ID of the HTML element where links should be appended.
+ */
 function generateLinks(linksArray, targetElementId) {
     const targetElement = document.getElementById(targetElementId);
     if (!targetElement) {
@@ -56,9 +69,152 @@ function generateLinks(linksArray, targetElementId) {
     });
 }
 
-// Call the function to generate links for each section when the page loads
+// --- TV Remote Navigation Logic ---
+let allLinks = [];
+let focusedIndex = -1; // -1 means no element is focused initially
+
+/**
+ * Updates the visual focus on a link element and scrolls it into view.
+ * @param {number} newIndex - The index of the link to focus in the allLinks array.
+ */
+function updateFocus(newIndex) {
+    if (allLinks.length === 0) return;
+
+    // Remove focus from previous element
+    if (focusedIndex !== -1 && allLinks[focusedIndex]) {
+        allLinks[focusedIndex].classList.remove('ring-4', 'ring-offset-2', 'ring-blue-500');
+    }
+
+    // Ensure newIndex is within bounds
+    focusedIndex = (newIndex + allLinks.length) % allLinks.length;
+    if (focusedIndex < 0) focusedIndex = allLinks.length - 1; // Handle negative modulo result for left arrow
+
+    // Add focus to new element
+    if (allLinks[focusedIndex]) {
+        allLinks[focusedIndex].classList.add('ring-4', 'ring-offset-2', 'ring-blue-500');
+        // Scroll into view, ensuring it's fully visible
+        allLinks[focusedIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Generate links first
     generateLinks(liveTvLinks, 'live-tv-links');
     generateLinks(sportsLinks, 'sports-links');
     generateLinks(directChannelsLinks, 'direct-channels-links');
+
+    // Collect all generated links into a single array for navigation
+    allLinks = Array.from(document.querySelectorAll('#live-tv-links a, #sports-links a, #direct-channels-links a'));
+
+    // Set initial focus on the first link if available
+    if (allLinks.length > 0) {
+        updateFocus(0);
+    }
+
+    // Add keyboard navigation listener
+    document.addEventListener('keydown', (event) => {
+        if (allLinks.length === 0) return;
+
+        let newIndex = focusedIndex;
+        const currentLink = allLinks[focusedIndex];
+        const currentRect = currentLink ? currentLink.getBoundingClientRect() : null;
+
+        switch (event.key) {
+            case 'ArrowRight':
+                newIndex = (focusedIndex + 1) % allLinks.length;
+                break;
+            case 'ArrowLeft':
+                newIndex = (focusedIndex - 1 + allLinks.length) % allLinks.length;
+                break;
+            case 'ArrowDown':
+                if (!currentRect) break;
+                let nextRowCandidates = [];
+                // Find all links that are in a row below the current one
+                for (let i = focusedIndex + 1; i < allLinks.length; i++) {
+                    const candidate = allLinks[i];
+                    const candidateRect = candidate.getBoundingClientRect();
+                    // Check if candidate is in a new row (its top is significantly below current)
+                    // Adding a small tolerance (e.g., 5px) to account for minor layout variations
+                    if (candidateRect.top > currentRect.bottom - 5) {
+                        nextRowCandidates.push({ index: i, rect: candidateRect });
+                    }
+                }
+
+                if (nextRowCandidates.length > 0) {
+                    // Among candidates in the next row, find the one that is horizontally closest
+                    let closestCandidate = null;
+                    let minHorizontalDistance = Infinity;
+
+                    nextRowCandidates.forEach(candidate => {
+                        const horizontalDistance = Math.abs(candidate.rect.left - currentRect.left);
+                        if (horizontalDistance < minHorizontalDistance) {
+                            minHorizontalDistance = horizontalDistance;
+                            closestCandidate = candidate;
+                        }
+                    });
+                    if (closestCandidate) {
+                        newIndex = closestCandidate.index;
+                    } else {
+                        // Fallback: if no ideal horizontal match, just go to the first candidate in the next row
+                        newIndex = nextRowCandidates[0].index;
+                    }
+                } else {
+                    // If no next row candidates, wrap to the first element of the entire list
+                    newIndex = 0;
+                }
+                break;
+
+            case 'ArrowUp':
+                if (!currentRect) break;
+                let prevRowCandidates = [];
+                // Find all links that are in a row above the current one
+                for (let i = focusedIndex - 1; i >= 0; i--) {
+                    const candidate = allLinks[i];
+                    const candidateRect = candidate.getBoundingClientRect();
+                    // Check if candidate is in a previous row (its bottom is significantly above current)
+                    // Adding a small tolerance (e.g., 5px)
+                    if (candidateRect.bottom < currentRect.top + 5) {
+                        prevRowCandidates.push({ index: i, rect: candidateRect });
+                    }
+                }
+
+                if (prevRowCandidates.length > 0) {
+                    // Among candidates in the previous row, find the one that is horizontally closest
+                    let closestCandidate = null;
+                    let minHorizontalDistance = Infinity;
+
+                    // Iterate in reverse to pick the "last" element of the previous row that aligns well
+                    for (let i = prevRowCandidates.length - 1; i >= 0; i--) {
+                        const candidate = prevRowCandidates[i];
+                        const horizontalDistance = Math.abs(candidate.rect.left - currentRect.left);
+                        if (horizontalDistance < minHorizontalDistance) {
+                            minHorizontalDistance = horizontalDistance;
+                            closestCandidate = candidate;
+                        }
+                    }
+                    if (closestCandidate) {
+                        newIndex = closestCandidate.index;
+                    } else {
+                        // Fallback: if no ideal horizontal match, just go to the last candidate in the previous row
+                        newIndex = prevRowCandidates[prevRowCandidates.length - 1].index;
+                    }
+                } else {
+                    // If no previous row candidates, wrap to the last element of the entire list
+                    newIndex = allLinks.length - 1;
+                }
+                break;
+
+            case 'Enter':
+                if (allLinks[focusedIndex]) {
+                    allLinks[focusedIndex].click(); // Simulate a click on the focused link
+                }
+                return; // Prevent default scroll behavior for Enter
+            default:
+                return; // Do nothing for other keys
+        }
+
+        // Prevent default browser scroll behavior for arrow keys
+        event.preventDefault();
+        updateFocus(newIndex);
+    });
 });
