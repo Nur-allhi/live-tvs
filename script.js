@@ -12,12 +12,12 @@ const icons = {
 
 const liveTvLinks = [
     { name: "Sony Liv_2", url: "https://sonyliv-web-by-shivansh.vercel.app/", color: "cyan", icon: icons.tv },
-    { name: "Live tv Hub of All in one Tg", url: "https://allinonereborn.space/livetv-hub/", color: "purple", icon: icons.tv },
     { name: "ZubyerOp-Game24", url: "https://www.game24x.xyz/?m=1", color: "purple", icon: icons.tv },
     { name: "MirjaLiv", url: "https://mirajliv.vercel.app/", color: "green", icon: icons.tv },
-    { name: "Bdix 24/7", url: "https://bdixtv.serverbd247.com/", color: "red", icon: icons.tv },
-    { name: "BDIXTV24", url: "https://www.bdixtv24.xyz/", color: "blue", icon: icons.tv },
+    { name: "Fancode-WW", url: "https://www.bdixtv24.xyz/", color: "blue", icon: icons.tv },
     { name: "BongoFlix", url: "https://tv.bongoflix.top/", color: "orange", icon: icons.tv },
+    { name: "Sagar Tv", url: "https://sagar-tv.com/", color: "blue", icon: icons.tv },
+    { name: "Bokul-Sports", url: "https://bokulsports.xyz/", color: "green", icon: icons.tv },
 ];
 
 
