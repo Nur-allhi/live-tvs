@@ -11,13 +11,16 @@ const icons = {
 };
 
 const liveTvLinks = [
+    { name: "Fancode-AlIO", url: "https://allinonereborn.fun/fcw/", color: "cyan", icon: icons.tv },
+    { name: "Sony Liv-AlIO", url: "https://allinonereborn.fun/sony/", color: "cyan", icon: icons.tv },
+    { name: "Jio Tv-AlIO", url: "https://mintos.allinonereborn.xyz/jiotv-ww/", color: "cyan", icon: icons.tv },
     { name: "Sony Liv_2", url: "https://sonyliv-web-by-shivansh.vercel.app/", color: "cyan", icon: icons.tv },
     { name: "ZubyerOp-Game24", url: "https://www.game24x.xyz/?m=1", color: "purple", icon: icons.tv },
-    { name: "MirjaLiv", url: "https://mirajliv.vercel.app/", color: "green", icon: icons.tv },
     { name: "Fancode-WW", url: "https://www.bdixtv24.xyz/", color: "blue", icon: icons.tv },
     { name: "BongoFlix", url: "https://tv.bongoflix.top/", color: "orange", icon: icons.tv },
     { name: "Sagar Tv", url: "https://sagar-tv.com/", color: "blue", icon: icons.tv },
     { name: "Bokul-Sports", url: "https://bokulsports.xyz/", color: "green", icon: icons.tv },
+     { name: "MirjaLiv", url: "https://mirajliv.vercel.app/", color: "green", icon: icons.tv },
 ];
 
 
