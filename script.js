@@ -33,7 +33,9 @@ const sportsLinks = [
 
 // --- DIRECT CHANNELS LINKS ---
 const directChannelsLinks = [
-    { name: "Disney+ Hotstar", url: "https://amitb3669.github.io/allinonereborn/disni.html", color: "red", icon: icons.playCircle }
+    { name: "Disney+ Hotstar", url: "https://amitb3669.github.io/allinonereborn/disni.html", color: "red", icon: icons.playCircle },
+    { name: "Trigger", url: "http://10.16.100.244/player.php?play=40972", color: "green", icon: icons.playCircle },
+    { name: "Project Silence", url: "http://10.16.100.202/ftps10/iccftps10sasd3/Movies/Dual%20Audio/Project%20Silence%20(Talchul%20Project%20Silence)%20(2023)%20(Hindi%20&%20Korean)%201080p%20WEBDL.mp4", color: "red", icon: icons.playCircle }
 ];
 
 // --- MY PERSONAL SITES LINKS ---
