@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPTV Links</title>
+  <link rel="stylesheet" href="public/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>📺 IPTV Links</h1>
+    <div class="controls">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search channels...">
+      </div>
+      <div class="view-toggle">
+        <button id="listViewBtn">List View</button>
+        <button id="gridViewBtn">Grid View</button>
+      </div>
+      <div class="theme-toggle">
+        <button id="themeToggle">☀️</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="filters">
+      <select id="groupFilter">
+        <option value="all">All Groups</option>
+      </select>
+    </div>
+    <div id="loadingIndicator" class="loading hidden">Loading channels...</div>
+    <div id="channelContainer" class="list-view"></div>
+    <div id="noResults" class="no-results hidden">No channels found matching your criteria.</div>
+  </main>
+
+  <script src="public/js/script.js" defer></script>
+</body>
+</html>
