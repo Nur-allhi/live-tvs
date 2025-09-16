@@ -1,9 +1,5 @@
 [
-  {
-    "name": "TNT Sports 1",
-    "url": "http://example.com/stream1.m3u8",
-    "group": "Sports"
-  },
+  
   {
     "name": "Sony Ten 5",
     "url": "https://allinonereborn.fun/sony/play.html?id=sony-ten-5-hd",
@@ -25,18 +21,8 @@
     "group": "Sports"
   },
   {
-    "name": "Discovery Channel",
-    "url": "http://example.com/discovery.m3u8",
-    "group": "Documentary"
+    "name": "Game24",
+    "url": "https://www.game24x.xyz/",
+    "group": "Sports"
   },
-  {
-    "name": "National Geographic",
-    "url": "http://example.com/natgeo.m3u8",
-    "group": "Documentary"
-  },
-  {
-    "name": "HBO",
-    "url": "http://example.com/hbo.m3u8",
-    "group": "Entertainment"
-  }
 ]
