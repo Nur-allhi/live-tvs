@@ -23,5 +23,16 @@
     "name": "Game24",
     "url": "https://www.game24x.xyz/",
     "group": "Sports"
+  },
+  {
+    "name": "Fredlix",
+    "url": "https://globalplay.live/",
+    "group": "Sports"
+  },
+  {
+    "name": "RoarZone Emby",
+    "url": "https://play.roarzone.info/web/index.html#!/videos?serverId=1203d2762453416d96aee8f714e99a58&parentId=1152&tab=suggestions",
+    "group": "Movies"
   }
+
 ]
